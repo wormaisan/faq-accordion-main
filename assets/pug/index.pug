@@ -1,32 +1,57 @@
 extends ./components/layout
 
+block variables
+    -
+        var accordionItems = [
+            {
+              title: 'What is Frontend Mentor, and how will it help me?',
+              text: 'Frontend Mentor offers realistic coding challenges to help developers improve their '+
+                    'frontend coding skills with projects in HTML, CSS, and JavaScript. It\'s suitable for '+
+                    'all levels and ideal for portfolio building.',
+            },
+            {
+                title: 'Is Frontend Mentor free?',
+                text: 'Yes, Frontend Mentor offers both free and premium coding challenges, with the free ' +
+                      'option providing access to a range of projects suitable for all skill levels.',
+            },
+            {
+                title: 'Can I use Frontend Mentor projects in my portfolio?',
+                text: 'Yes, you can use projects completed on Frontend Mentor in your portfolio. It\'s an excellent '+
+                      'way to showcase your skills to potential employers!',
+            },
+            {
+                title: 'How can I get help if I\'m stuck on a Frontend Mentor challenge?',
+                text: 'The best place to get help is inside Frontend Mentor\'s Discord community. There\'s a help '+
+                      'channel where you can ask questions and seek support from other community members.',
+            },
+        ];
+
 block content
-    //FAQs
-    //
-    //What is Frontend Mentor, and how will it help me?
-    //
-    //Frontend Mentor offers realistic coding challenges to help developers improve their
-    //frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for
-    //all levels and ideal for portfolio building.
-    //
-    //Is Frontend Mentor free?
-    //
-    //Yes, Frontend Mentor offers both free and premium coding challenges, with the free
-    //option providing access to a range of projects suitable for all skill levels.
-    //
-    //Can I use Frontend Mentor projects in my portfolio?
-    //
-    //Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
-    //way to showcase your skills to potential employers!
-    //
-    //How can I get help if I'm stuck on a Frontend Mentor challenge?
-    //
-    //The best place to get help is inside Frontend Mentor's Discord community. There's a help
-    //channel where you can ask questions and seek support from other community members.
+    .wrapper
 
-    .attribution
-        | Challenge by
-        a(href="https://www.frontendmentor.io?ref=challenge" target="_blank")=" Frontend Mentor. "
-        | Coded by
-        a(href="#")=" Your Name Here."
-
+        main.main
+            section.accordion
+                .container
+                    .accordion__body
+                        .accordion__background
+                            img(src="./assets/images/background-pattern-desktop.svg" alt='' title='' height="100%" width="100%" loading="lazy" decoding="async")
+                        .accordion__box
+                            .accordion__header
+                                .accordion__headerIcon
+                                    img(src="./assets/images/icon-star.svg" alt='' title='' height="100%" width="100%" loading="lazy" decoding="async")
+                                h2.accordion__title FAQs
+                            each val in accordionItems
+                                .accordion__item
+                                    .accordion__itemHeader
+                                        .accordion__itemTitle=val.title
+                                        .accordion__itemIcon
+                                            img(src="./assets/images/icon-plus.svg" alt='' title='' height="100%" width="100%" loading="lazy" decoding="async")
+                                            img(src="./assets/images/icon-minus.svg" alt='' title='' height="100%" width="100%" loading="lazy" decoding="async")
+                                    .accordion__itemText=val.text
+        footer.footer
+            .container
+                .attribution
+                    | Challenge by
+                    a(href="https://www.frontendmentor.io?ref=challenge" target="_blank")=" Frontend Mentor. "
+                    | Coded by
+                    a(href="#")=" Your Name Here."
