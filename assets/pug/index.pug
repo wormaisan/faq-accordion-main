@@ -20,7 +20,7 @@ block variables
                       'way to showcase your skills to potential employers!',
             },
             {
-                title: 'How can I get help if I\'m stuck on a Frontend Mentor challenge?',
+                title: 'How can I get help if I\'m stuck on a challenge?',
                 text: 'The best place to get help is inside Frontend Mentor\'s Discord community. There\'s a help '+
                       'channel where you can ask questions and seek support from other community members.',
             },
@@ -44,7 +44,7 @@ block content
                                 .accordion__item
                                     .accordion__itemHeader
                                         .accordion__itemTitle=val.title
-                                        .accordion__itemIcon
+                                        button(type="button").accordion__itemIcon
                                             img(src="./assets/images/icon-plus.svg" alt='' title='' height="100%" width="100%" loading="lazy" decoding="async")
                                             img(src="./assets/images/icon-minus.svg" alt='' title='' height="100%" width="100%" loading="lazy" decoding="async")
                                     .accordion__itemText=val.text

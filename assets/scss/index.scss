@@ -1,3 +1,145 @@
-body {
+@font-face {
+  font-family: "WorkSans";
+  src: url("/assets/fonts/static/WorkSans-Regular.ttf");
+  font-weight: 400;
+}
 
+@font-face {
+  font-family: "WorkSans";
+  src: url("/assets/fonts/static/WorkSans-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "WorkSans";
+  src: url("/assets/fonts/static/WorkSans-Bold.ttf");
+  font-weight: 700;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --lightPink: hsl(275, 100%, 97%);
+  --grayishPurple: hsl(292, 16%, 49%);
+  --darkPurple: hsl(292, 42%, 14%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: hsl(292, 42%, 14%);
+  font-size: 16px;
+}
+
+img {
+  object-fit: cover;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.accordion {
+  font-family: WorkSans, sans-serif;
+}
+
+.accordion__body {
+  background-color: var(--lightPink);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordion__background {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 0;
+}
+
+.accordion__box {
+  background-color: var(--white);
+  position: relative;
+  padding: 30px;
+  z-index: 1;
+  max-width: 578px;
+  border-radius: 20px;
+}
+
+.accordion__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.accordion__headerIcon {
+  margin-right: 25px;
+  height: 35px;
+  width: 35px;
+  overflow: hidden;
+}
+
+.accordion__title {
+  font-size: 50px;
+}
+
+.accordion__item {
+  padding: 20px 0;
+
+  & + & {
+    border-top: 1px solid hsl(292, 16%, 93%);;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.accordion__itemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & + .accordion__itemText {
+    margin-top: 20px;
+  }
+}
+
+.accordion__itemTitle {
+  font-weight: 600;
+  margin-right: 30px;
+  font-size: 17px;
+}
+
+.accordion__itemIcon {
+  background-color: transparent;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.accordion__itemText {
+  color: var(--grayishPurple);
+  font-weight: 400;
+  line-height: 1.4;
 }
