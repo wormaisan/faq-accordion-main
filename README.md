@@ -31,7 +31,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://www.frontendmentor.io](https://www.frontendmentor.io/solutions/use-scss-pug-alpine-7eAa-ukZm3)
-- Live Site URL: [https://wormaisan.github.io](https://your-live-site-url.com)
+- Live Site URL: [https://wormaisan.github.io](https://wormaisan.github.io/faq-accordion-main/)
 
 ## My process
 
