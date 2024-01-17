@@ -44,6 +44,8 @@ img {
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 }
 
@@ -54,6 +56,14 @@ img {
 
 .accordion {
   font-family: WorkSans, sans-serif;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.accordion .container {
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
 }
 
 .accordion__body {
@@ -62,6 +72,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .accordion__background {
@@ -69,13 +80,18 @@ img {
   inset: 0 0 auto 0;
   z-index: 0;
 }
+.accordion__background img {
+  min-height: 200px;
+}
 
 .accordion__box {
   background-color: var(--white);
   position: relative;
   padding: 30px;
+  margin: 0 20px;
   z-index: 1;
   max-width: 578px;
+  width: 100%;
   border-radius: 20px;
 }
 
@@ -109,7 +125,6 @@ img {
 .accordion__itemHeader {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .accordion__itemHeader + .accordion__itemText {
   margin-top: 20px;
@@ -117,25 +132,79 @@ img {
 
 .accordion__itemTitle {
   font-weight: 600;
-  margin-right: 30px;
+  margin-right: 50px;
   font-size: 17px;
+  transition: color 0.3s;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  flex-grow: 1;
+  text-align: left;
+}
+.accordion__itemTitle:hover {
+  color: #AD28EB;
+}
+.accordion__itemTitle:focus {
+  color: hsl(292, 42%, 30%);
 }
 
 .accordion__itemIcon {
   background-color: transparent;
-  height: 28px;
-  width: 28px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
   border: none;
   outline: none;
+  flex-shrink: 0;
+}
+.accordion__itemIcon:hover .accordion__itemIconImg:first-child svg, .accordion__itemIcon:focus .accordion__itemIconImg:first-child svg {
+  fill: rgba(173, 40, 235, 0.8);
+}
+.accordion__itemIcon:hover .accordion__itemIconImg:last-child svg, .accordion__itemIcon:focus .accordion__itemIconImg:last-child svg {
+  fill: rgba(48, 21, 52, 0.8);
+}
+
+.accordion__itemIconImg svg {
+  transition: fill 0.3s;
+}
+.accordion__itemIconImg:first-child svg {
+  fill: #AD28EB;
+}
+.accordion__itemIconImg:last-child svg {
+  fill: #301534;
 }
 
 .accordion__itemText {
   color: var(--grayishPurple);
   font-weight: 400;
   line-height: 1.4;
+}
+
+.attribution {
+  padding: 20px 0;
+  background-color: var(--lightPink);
+}
+
+@media (max-width: 375px) {
+  .accordion__box {
+    padding: 20px;
+  }
+  .accordion__header {
+    margin-bottom: 10px;
+  }
+  .accordion__title {
+    font-size: 40px;
+  }
+  .accordion__itemTitle {
+    font-size: 16px;
+  }
+  .accordion__itemText {
+    font-size: 15px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

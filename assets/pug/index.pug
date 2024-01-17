@@ -35,23 +35,24 @@ block content
                     .accordion__body
                         .accordion__background
                             img(src="./assets/images/background-pattern-desktop.svg" alt='' title='' height="100%" width="100%" loading="lazy" decoding="async")
-                        .accordion__box
+                        .accordion__box(x-data={ openedIndex: 0 })
                             .accordion__header
                                 .accordion__headerIcon
                                     img(src="./assets/images/icon-star.svg" alt='' title='' height="100%" width="100%" loading="lazy" decoding="async")
                                 h2.accordion__title FAQs
-                            each val in accordionItems
+                            each val, index in accordionItems
                                 .accordion__item
                                     .accordion__itemHeader
-                                        .accordion__itemTitle=val.title
-                                        button(type="button").accordion__itemIcon
-                                            img(src="./assets/images/icon-plus.svg" alt='' title='' height="100%" width="100%" loading="lazy" decoding="async")
-                                            img(src="./assets/images/icon-minus.svg" alt='' title='' height="100%" width="100%" loading="lazy" decoding="async")
-                                    .accordion__itemText=val.text
+                                        button.accordion__itemTitle(@click="openedIndex == "+ index +" ? openedIndex = -1 : openedIndex = "+ index +"")=val.title
+                                        button.accordion__itemIcon(type="button" @click="openedIndex == "+ index +" ? openedIndex = -1 : openedIndex = "+ index +"")
+                                            .accordion__itemIconImg(x-show="openedIndex !== "+ index +"")
+                                                include ../images/icon-plus.svg
+                                            .accordion__itemIconImg(x-show="openedIndex == "+ index +"")
+                                                include ../images/icon-minus.svg
+                                    .accordion__itemText(x-show="openedIndex == "+ index +"" x-collapse)=val.text
         footer.footer
             .container
                 .attribution
                     | Challenge by
                     a(href="https://www.frontendmentor.io?ref=challenge" target="_blank")=" Frontend Mentor. "
-                    | Coded by
-                    a(href="#")=" Your Name Here."
+                    | Coded by SAN

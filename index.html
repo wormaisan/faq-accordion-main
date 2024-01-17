@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
     <link rel="stylesheet" href="./assets/css/index.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>Frontend Mentor | FAQ accordion</title>
     <style>.attribution { font-size: 11px; text-align: center; } .attribution a { color: hsl(228, 45%, 44%); }</style>
@@ -16,38 +17,50 @@
           <div class="container">
             <div class="accordion__body">
               <div class="accordion__background"><img src="./assets/images/background-pattern-desktop.svg" alt="" title="" height="100%" width="100%" loading="lazy" decoding="async"></div>
-              <div class="accordion__box">
+              <div class="accordion__box" x-data="{&quot;openedIndex&quot;:0}">
                 <div class="accordion__header">
                   <div class="accordion__headerIcon"><img src="./assets/images/icon-star.svg" alt="" title="" height="100%" width="100%" loading="lazy" decoding="async"></div>
                   <h2 class="accordion__title">FAQs</h2>
                 </div>
                 <div class="accordion__item">
                   <div class="accordion__itemHeader">
-                    <div class="accordion__itemTitle">What is Frontend Mentor, and how will it help me?</div>
-                    <button class="accordion__itemIcon" type="button"><img src="./assets/images/icon-plus.svg" alt="" title="" height="100%" width="100%" loading="lazy" decoding="async"><img src="./assets/images/icon-minus.svg" alt="" title="" height="100%" width="100%" loading="lazy" decoding="async"></button>
+                    <button class="accordion__itemTitle" @click="openedIndex == 0 ? openedIndex = -1 : openedIndex = 0">What is Frontend Mentor, and how will it help me?</button>
+                    <button class="accordion__itemIcon" type="button" @click="openedIndex == 0 ? openedIndex = -1 : openedIndex = 0">
+                      <div class="accordion__itemIconImg" x-show="openedIndex !== 0"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="3 3 30 31"><path d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z"/></svg></div>
+                      <div class="accordion__itemIconImg" x-show="openedIndex == 0"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="3 3 30 31"><path d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.2 12.2 0 0 0 15 3.312Zm4.688 13.124h-9.375a.938.938 0 0 1 0-1.875h9.374a.938.938 0 0 1 0 1.876Z"/></svg></div>
+                    </button>
                   </div>
-                  <div class="accordion__itemText">Frontend Mentor offers realistic coding challenges to help developers improve their frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for all levels and ideal for portfolio building.</div>
+                  <div class="accordion__itemText" x-show="openedIndex == 0" x-collapse>Frontend Mentor offers realistic coding challenges to help developers improve their frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for all levels and ideal for portfolio building.</div>
                 </div>
                 <div class="accordion__item">
                   <div class="accordion__itemHeader">
-                    <div class="accordion__itemTitle">Is Frontend Mentor free?</div>
-                    <button class="accordion__itemIcon" type="button"><img src="./assets/images/icon-plus.svg" alt="" title="" height="100%" width="100%" loading="lazy" decoding="async"><img src="./assets/images/icon-minus.svg" alt="" title="" height="100%" width="100%" loading="lazy" decoding="async"></button>
+                    <button class="accordion__itemTitle" @click="openedIndex == 1 ? openedIndex = -1 : openedIndex = 1">Is Frontend Mentor free?</button>
+                    <button class="accordion__itemIcon" type="button" @click="openedIndex == 1 ? openedIndex = -1 : openedIndex = 1">
+                      <div class="accordion__itemIconImg" x-show="openedIndex !== 1"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="3 3 30 31"><path d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z"/></svg></div>
+                      <div class="accordion__itemIconImg" x-show="openedIndex == 1"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="3 3 30 31"><path d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.2 12.2 0 0 0 15 3.312Zm4.688 13.124h-9.375a.938.938 0 0 1 0-1.875h9.374a.938.938 0 0 1 0 1.876Z"/></svg></div>
+                    </button>
                   </div>
-                  <div class="accordion__itemText">Yes, Frontend Mentor offers both free and premium coding challenges, with the free option providing access to a range of projects suitable for all skill levels.</div>
+                  <div class="accordion__itemText" x-show="openedIndex == 1" x-collapse>Yes, Frontend Mentor offers both free and premium coding challenges, with the free option providing access to a range of projects suitable for all skill levels.</div>
                 </div>
                 <div class="accordion__item">
                   <div class="accordion__itemHeader">
-                    <div class="accordion__itemTitle">Can I use Frontend Mentor projects in my portfolio?</div>
-                    <button class="accordion__itemIcon" type="button"><img src="./assets/images/icon-plus.svg" alt="" title="" height="100%" width="100%" loading="lazy" decoding="async"><img src="./assets/images/icon-minus.svg" alt="" title="" height="100%" width="100%" loading="lazy" decoding="async"></button>
+                    <button class="accordion__itemTitle" @click="openedIndex == 2 ? openedIndex = -1 : openedIndex = 2">Can I use Frontend Mentor projects in my portfolio?</button>
+                    <button class="accordion__itemIcon" type="button" @click="openedIndex == 2 ? openedIndex = -1 : openedIndex = 2">
+                      <div class="accordion__itemIconImg" x-show="openedIndex !== 2"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="3 3 30 31"><path d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z"/></svg></div>
+                      <div class="accordion__itemIconImg" x-show="openedIndex == 2"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="3 3 30 31"><path d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.2 12.2 0 0 0 15 3.312Zm4.688 13.124h-9.375a.938.938 0 0 1 0-1.875h9.374a.938.938 0 0 1 0 1.876Z"/></svg></div>
+                    </button>
                   </div>
-                  <div class="accordion__itemText">Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent way to showcase your skills to potential employers!</div>
+                  <div class="accordion__itemText" x-show="openedIndex == 2" x-collapse>Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent way to showcase your skills to potential employers!</div>
                 </div>
                 <div class="accordion__item">
                   <div class="accordion__itemHeader">
-                    <div class="accordion__itemTitle">How can I get help if I'm stuck on a challenge?</div>
-                    <button class="accordion__itemIcon" type="button"><img src="./assets/images/icon-plus.svg" alt="" title="" height="100%" width="100%" loading="lazy" decoding="async"><img src="./assets/images/icon-minus.svg" alt="" title="" height="100%" width="100%" loading="lazy" decoding="async"></button>
+                    <button class="accordion__itemTitle" @click="openedIndex == 3 ? openedIndex = -1 : openedIndex = 3">How can I get help if I'm stuck on a challenge?</button>
+                    <button class="accordion__itemIcon" type="button" @click="openedIndex == 3 ? openedIndex = -1 : openedIndex = 3">
+                      <div class="accordion__itemIconImg" x-show="openedIndex !== 3"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="3 3 30 31"><path d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z"/></svg></div>
+                      <div class="accordion__itemIconImg" x-show="openedIndex == 3"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="3 3 30 31"><path d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.2 12.2 0 0 0 15 3.312Zm4.688 13.124h-9.375a.938.938 0 0 1 0-1.875h9.374a.938.938 0 0 1 0 1.876Z"/></svg></div>
+                    </button>
                   </div>
-                  <div class="accordion__itemText">The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where you can ask questions and seek support from other community members.</div>
+                  <div class="accordion__itemText" x-show="openedIndex == 3" x-collapse>The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where you can ask questions and seek support from other community members.</div>
                 </div>
               </div>
             </div>
@@ -56,7 +69,7 @@
       </main>
       <footer class="footer">
         <div class="container">
-          <div class="attribution">Challenge by<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"> Frontend Mentor. </a>Coded by<a href="#"> Your Name Here.</a></div>
+          <div class="attribution">Challenge by<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"> Frontend Mentor. </a>Coded by SAN</div>
         </div>
       </footer>
     </div>
